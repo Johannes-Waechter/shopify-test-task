@@ -1,0 +1,17 @@
+# Shopify spezifisch
+.shopify/
+theme-check-cache/
+
+# System-Dateien
+.DS_Store
+Thumbs.db
+
+# Entwicklung & Logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Falls du später Tools wie Sass nutzt
+.sass-cache/
+*.map

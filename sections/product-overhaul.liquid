@@ -1,13 +1,40 @@
+{% comment %}
+  Link Vite-generated assets from the assets folder
+{% endcomment %}
+{{ 'bundle-product-overhaul.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bundle-product-overhaul.js' | asset_url }}" defer="defer"></script>
+
+{% comment %}
+  Structured data for SEO
+{% endcomment %}
 <script type="application/ld+json">
   {{ closest.product | structured_data }}
 </script>
 
 {% capture media_gallery %}
-  {%- content_for 'block',
-    type: '_product-media-gallery',
-    id: 'media-gallery',
-    closest.product: closest.product
-  -%}
+  <div class="product-gallery-container">
+    <div class="swiper thumb-slider-vertical">
+      <div class="swiper-wrapper">
+        {% for media in closest.product.media %}
+          <div class="swiper-slide">
+            {{ media | image_url: width: 150 | image_tag: loading: 'lazy', alt: media.alt }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="swiper main-image-slider">
+      <div class="swiper-wrapper">
+        {% for media in closest.product.media %}
+          <div class="swiper-slide">
+            {{ media | image_url: width: 1000 | image_tag: class: 'img-responsive', alt: media.alt }}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
 {% endcapture %}
 
 {% capture product_details %}

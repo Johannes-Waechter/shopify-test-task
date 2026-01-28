@@ -1,0 +1,85 @@
+/* ============================================
+   Product Overhaul Custom Styles
+   ============================================ */
+
+.product-gallery-container {
+    display: flex;
+    gap: 1rem;
+    max-width: 100%;
+}
+
+/* Thumbnail Slider (Vertical on the left) */
+.thumb-slider-vertical {
+    width: 120px;
+    height: 500px;
+}
+
+.thumb-slider-vertical .swiper-slide {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.thumb-slider-vertical .swiper-slide:hover,
+.thumb-slider-vertical .swiper-slide-thumb-active {
+    opacity: 1;
+    border-color: var(--color-foreground, #000);
+}
+
+.thumb-slider-vertical img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main Image Slider */
+.main-image-slider {
+    flex: 1;
+    max-width: calc(100% - 140px);
+}
+
+.main-image-slider .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background-secondary, #f5f5f5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.main-image-slider img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--color-foreground, #000);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 749px) {
+    .product-gallery-container {
+        flex-direction: column-reverse;
+    }
+
+    .thumb-slider-vertical {
+        width: 100%;
+        height: 80px;
+        direction: ltr;
+    }
+
+    .thumb-slider-vertical .swiper-wrapper {
+        flex-direction: row !important;
+    }
+
+    .main-image-slider {
+        max-width: 100%;
+    }
+}

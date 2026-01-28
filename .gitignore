@@ -1,17 +1,27 @@
-# Shopify spezifisch
+# --- Shopify Specific ---
 .shopify/
 theme-check-cache/
+config.yml
 
-# System-Dateien
+# --- System Files ---
 .DS_Store
 Thumbs.db
+*.swp
 
-# Entwicklung & Logs
+# --- Development & Dependencies (NPM) ---
 node_modules/
+# Vite Cache
+.vite/
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Falls du später Tools wie Sass nutzt
+# --- Security ---
+.env
+.env.local
+
+# --- Build-Tools & CSS ---
+# Local cache and source maps
 .sass-cache/
 *.map

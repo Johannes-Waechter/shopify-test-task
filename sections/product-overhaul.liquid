@@ -210,20 +210,18 @@
   <div class="product-trust-badges">
     {% for i in (1..3) %}
       {% assign icon_key = 'trust_badge_' | append: i | append: '_icon' %}
+      {% assign image_key = 'trust_badge_' | append: i | append: '_image' %}
       {% assign text_key = 'trust_badge_' | append: i | append: '_text' %}
       {% assign subtext_key = 'trust_badge_' | append: i | append: '_subtext' %}
 
       {% assign icon = section.settings[icon_key] %}
+      {% assign image = section.settings[image_key] %}
       {% assign text = section.settings[text_key] %}
       {% assign subtext = section.settings[subtext_key] %}
 
-      {% if icon != blank or text != blank %}
+      {% if icon != 'none' or image != blank or text != blank %}
         <div class="trust-badge-item">
-          {% if icon != blank %}
-            {{ icon | image_url: width: 40 | image_tag: class: 'trust-badge-icon', loading: 'lazy' }}
-          {% else %}
-            {% comment %} Fallback icon or empty {% endcomment %}
-          {% endif %}
+          {% render 'icon-or-image', icon: icon, image_upload: image, width: 32, class_name: 'trust-badge-icon' %}
           <div class="trust-badge-content">
             {% if text != blank %}
               <div class="trust-badge-title">{{ text }}</div>
@@ -537,9 +535,58 @@
       "content": "Hier kannst du die Logos und Texte unter der Produkt-Card anpassen."
     },
     {
-      "type": "image_picker",
+      "type": "select",
       "id": "trust_badge_1_icon",
-      "label": "Badge 1: Icon"
+      "label": "Badge 1: Icon (Symbol)",
+      "options": [
+        { "value": "none", "label": "Keins" },
+        { "value": "apple", "label": "Apfel" },
+        { "value": "banana", "label": "Banane" },
+        { "value": "bottle", "label": "Flasche" },
+        { "value": "box", "label": "Paket" },
+        { "value": "chat_bubble", "label": "Sprechblase" },
+        { "value": "check_box", "label": "Haken" },
+        { "value": "clipboard", "label": "Klemmbrett" },
+        { "value": "dairy", "label": "Milchprodukte" },
+        { "value": "dairy_free", "label": "Laktosefrei" },
+        { "value": "eye", "label": "Auge" },
+        { "value": "fire", "label": "Feuer" },
+        { "value": "gluten_free", "label": "Glutenfrei" },
+        { "value": "heart", "label": "Herz" },
+        { "value": "iron", "label": "Bügeleisen" },
+        { "value": "leaf", "label": "Blatt" },
+        { "value": "leather", "label": "Leder" },
+        { "value": "lightning_bolt", "label": "Blitz" },
+        { "value": "lock", "label": "Schloss" },
+        { "value": "map_pin", "label": "Standort" },
+        { "value": "nut_free", "label": "Nussfrei" },
+        { "value": "pants", "label": "Hose" },
+        { "value": "paw_print", "label": "Pfote" },
+        { "value": "pepper", "label": "Pfeffer" },
+        { "value": "perfume", "label": "Parfüm" },
+        { "value": "plane", "label": "Flugzeug" },
+        { "value": "plant", "label": "Pflanze" },
+        { "value": "price_tag", "label": "Preisschild" },
+        { "value": "question_mark", "label": "Fragezeichen" },
+        { "value": "recycle", "label": "Recycling" },
+        { "value": "return", "label": "Rückgabe" },
+        { "value": "ruler", "label": "Lineal" },
+        { "value": "serving_dish", "label": "Servierteller" },
+        { "value": "shirt", "label": "Shirt" },
+        { "value": "shoe", "label": "Schuh" },
+        { "value": "silhouette", "label": "Silhouette" },
+        { "value": "snowflake", "label": "Schneeflocke" },
+        { "value": "star", "label": "Stern" },
+        { "value": "stopwatch", "label": "Stoppuhr" },
+        { "value": "truck", "label": "LKW" },
+        { "value": "washing", "label": "Waschen" }
+      ],
+      "default": "check_box"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_badge_1_image",
+      "label": "Badge 1: Bildsymbol (Custom)"
     },
     {
       "type": "text",
@@ -554,9 +601,58 @@
       "default": "Dank weichem Silikon"
     },
     {
-      "type": "image_picker",
+      "type": "select",
       "id": "trust_badge_2_icon",
-      "label": "Badge 2: Icon"
+      "label": "Badge 2: Icon (Symbol)",
+      "options": [
+        { "value": "none", "label": "Keins" },
+        { "value": "apple", "label": "Apfel" },
+        { "value": "banana", "label": "Banane" },
+        { "value": "bottle", "label": "Flasche" },
+        { "value": "box", "label": "Paket" },
+        { "value": "chat_bubble", "label": "Sprechblase" },
+        { "value": "check_box", "label": "Haken" },
+        { "value": "clipboard", "label": "Klemmbrett" },
+        { "value": "dairy", "label": "Milchprodukte" },
+        { "value": "dairy_free", "label": "Laktosefrei" },
+        { "value": "eye", "label": "Auge" },
+        { "value": "fire", "label": "Feuer" },
+        { "value": "gluten_free", "label": "Glutenfrei" },
+        { "value": "heart", "label": "Herz" },
+        { "value": "iron", "label": "Bügeleisen" },
+        { "value": "leaf", "label": "Blatt" },
+        { "value": "leather", "label": "Leder" },
+        { "value": "lightning_bolt", "label": "Blitz" },
+        { "value": "lock", "label": "Schloss" },
+        { "value": "map_pin", "label": "Standort" },
+        { "value": "nut_free", "label": "Nussfrei" },
+        { "value": "pants", "label": "Hose" },
+        { "value": "paw_print", "label": "Pfote" },
+        { "value": "pepper", "label": "Pfeffer" },
+        { "value": "perfume", "label": "Parfüm" },
+        { "value": "plane", "label": "Flugzeug" },
+        { "value": "plant", "label": "Pflanze" },
+        { "value": "price_tag", "label": "Preisschild" },
+        { "value": "question_mark", "label": "Fragezeichen" },
+        { "value": "recycle", "label": "Recycling" },
+        { "value": "return", "label": "Rückgabe" },
+        { "value": "ruler", "label": "Lineal" },
+        { "value": "serving_dish", "label": "Servierteller" },
+        { "value": "shirt", "label": "Shirt" },
+        { "value": "shoe", "label": "Schuh" },
+        { "value": "silhouette", "label": "Silhouette" },
+        { "value": "snowflake", "label": "Schneeflocke" },
+        { "value": "star", "label": "Stern" },
+        { "value": "stopwatch", "label": "Stoppuhr" },
+        { "value": "truck", "label": "LKW" },
+        { "value": "washing", "label": "Waschen" }
+      ],
+      "default": "check_box"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_badge_2_image",
+      "label": "Badge 2: Bildsymbol (Custom)"
     },
     {
       "type": "text",
@@ -571,9 +667,58 @@
       "default": "Dank weichem Silikon"
     },
     {
-      "type": "image_picker",
+      "type": "select",
       "id": "trust_badge_3_icon",
-      "label": "Badge 3: Icon"
+      "label": "Badge 3: Icon (Symbol)",
+      "options": [
+        { "value": "none", "label": "Keins" },
+        { "value": "apple", "label": "Apfel" },
+        { "value": "banana", "label": "Banane" },
+        { "value": "bottle", "label": "Flasche" },
+        { "value": "box", "label": "Paket" },
+        { "value": "chat_bubble", "label": "Sprechblase" },
+        { "value": "check_box", "label": "Haken" },
+        { "value": "clipboard", "label": "Klemmbrett" },
+        { "value": "dairy", "label": "Milchprodukte" },
+        { "value": "dairy_free", "label": "Laktosefrei" },
+        { "value": "eye", "label": "Auge" },
+        { "value": "fire", "label": "Feuer" },
+        { "value": "gluten_free", "label": "Glutenfrei" },
+        { "value": "heart", "label": "Herz" },
+        { "value": "iron", "label": "Bügeleisen" },
+        { "value": "leaf", "label": "Blatt" },
+        { "value": "leather", "label": "Leder" },
+        { "value": "lightning_bolt", "label": "Blitz" },
+        { "value": "lock", "label": "Schloss" },
+        { "value": "map_pin", "label": "Standort" },
+        { "value": "nut_free", "label": "Nussfrei" },
+        { "value": "pants", "label": "Hose" },
+        { "value": "paw_print", "label": "Pfote" },
+        { "value": "pepper", "label": "Pfeffer" },
+        { "value": "perfume", "label": "Parfüm" },
+        { "value": "plane", "label": "Flugzeug" },
+        { "value": "plant", "label": "Pflanze" },
+        { "value": "price_tag", "label": "Preisschild" },
+        { "value": "question_mark", "label": "Fragezeichen" },
+        { "value": "recycle", "label": "Recycling" },
+        { "value": "return", "label": "Rückgabe" },
+        { "value": "ruler", "label": "Lineal" },
+        { "value": "serving_dish", "label": "Servierteller" },
+        { "value": "shirt", "label": "Shirt" },
+        { "value": "shoe", "label": "Schuh" },
+        { "value": "silhouette", "label": "Silhouette" },
+        { "value": "snowflake", "label": "Schneeflocke" },
+        { "value": "star", "label": "Stern" },
+        { "value": "stopwatch", "label": "Stoppuhr" },
+        { "value": "truck", "label": "LKW" },
+        { "value": "washing", "label": "Waschen" }
+      ],
+      "default": "check_box"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_badge_3_image",
+      "label": "Badge 3: Bildsymbol (Custom)"
     },
     {
       "type": "text",

@@ -22,13 +22,14 @@ import 'swiper/css/pagination';
 
 // Import custom styles
 import './product-overhaul.css';
+import './product-details.css';
 
 /**
  * Initializes the product gallery sliders when DOM is ready.
  * Checks for existence of slider elements before initialization.
  */
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🎨 Product Overhaul JS loaded!');
+    console.log(' Product Overhaul JS loaded!');
 
     // Check if Swiper elements exist
     const thumbSlider = document.querySelector('.thumb-slider-vertical');
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Main slider found:', !!mainSlider);
 
     if (!thumbSlider || !mainSlider) {
-        console.error('❌ Swiper elements not found! Make sure you are using the product-overhaul template.');
+        console.error('Swiper elements not found! Make sure you are using the product-overhaul template.');
         return;
     }
 
@@ -106,5 +107,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    console.log('✅ Main slider initialized');
+    console.log(' Main slider initialized');
 });

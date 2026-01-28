@@ -1,13 +1,32 @@
+/* Main Wrapper constraints */
+#MainContent {
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    width: 100%;
+}
+
 /* ============================================
    Product Overhaul Custom Styles
    ============================================ */
 
 .product-gallery-container {
     display: flex !important;
-    gap: 10px !important;
+    gap: 20px !important;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 100%;
+    width: 600px !important;
+    /* Thumbnails (100) + Gap (20) + Bild (480) */
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.gallery-center-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 0;
+    min-width: 0;
+    position: relative;
     max-width: 100%;
 }
 
@@ -30,7 +49,6 @@
 
 .thumb-slider-vertical .swiper-slide {
     cursor: pointer;
-    opacity: 0.6;
     transition: opacity 0.3s ease;
     border-radius: 5px;
     overflow: hidden;
@@ -51,6 +69,10 @@
     /* Space for arrows below image */
     overflow: hidden;
     /* Prevents thumbnail clipping on desktop */
+    width: 100% !important;
+    /* Fix for Swiper width calculation bug */
+    max-width: 100% !important;
+    min-width: 0;
 }
 
 .main-image-slider .swiper-slide {
@@ -101,10 +123,110 @@
     display: none;
 }
 
+/* Trust Badges Styling (Below Product Details) */
+.product-trust-badges-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+}
+
+.product-trust-badges {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.trust-badge-item {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+    flex: 1;
+}
+
+.trust-badge-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.trust-badge-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-badge-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+}
+
+.trust-badge-subtext {
+    text-align: left;
+    font: normal normal normal 16px/19px;
+    letter-spacing: 0px;
+    color: #383838;
+    opacity: 1;
+}
+
+/* Layout adjustment for medium screens (between tablet and 1200px) */
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+    .product-information__grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 40px !important;
+    }
+
+    .product-details {
+        width: 100% !important;
+        max-width: 600px !important;
+        height: auto !important;
+    }
+
+    .product-gallery-container {
+        margin: 0 auto !important;
+    }
+}
+
 /* Mobile Responsive */
+
 @media screen and (max-width: 749px) {
+
+    /* Trust Badges - Stack vertically on mobile */
+    .product-trust-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .trust-badge-item {
+        flex-direction: row !important;
+        text-align: left !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: fit-content;
+        margin: 0 auto !important;
+        max-width: 400px;
+    }
+
+    .trust-badge-subtext {
+        text-align: left !important;
+    }
+
     .product-gallery-container {
         flex-direction: column-reverse;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .gallery-center-wrapper {
+        width: 100% !important;
+        min-width: 100%;
     }
 
     .thumb-slider-vertical {
@@ -119,9 +241,9 @@
     }
 
     .main-image-slider img {
-        width: 350px;
-        height: 350px;
-
+        width: 100% !important;
+        height: auto !important;
+        max-width: 400px;
     }
 
     .main-image-slider .swiper-slide {
@@ -153,5 +275,17 @@
 
     .swiper-pagination-bullet-active {
         background: #E5E5E5;
+    }
+
+    .product-details {
+        width: 90% !important;
+        /* Etwas Platz zu den Rändern lassen */
+        height: auto !important;
+        max-width: 500px !important;
+        margin: 20px auto !important;
+        background: #FFFFFF !important;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16) !important;
+        border: 1px solid #D5D5D5 !important;
+        border-radius: 5px !important;
     }
 }

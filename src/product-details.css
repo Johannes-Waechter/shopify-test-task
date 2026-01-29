@@ -2,13 +2,12 @@
    Product Details Styling 
    ============================================ */
 
-
-
 /* Add to Cart Button */
 .product-details button[type="submit"],
 .product-details .product-form__submit {
     background-color: #1F47FF;
-    font: normal normal 600 18px/22px;
+    font-size: 16px;
+    font-weight: 500;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
@@ -21,7 +20,7 @@
 
 .product-details button[type="submit"] svg,
 .product-details .product-form__submit svg {
-    display: none !important;
+    display: none;
 }
 
 .product-details button[type="submit"]:hover,
@@ -31,11 +30,10 @@
 
 /* Inventory Status */
 .product-inventory__status {
-    font-style: normal;
+    font-style: Medium;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 19px;
-    letter-spacing: 0px;
     opacity: 1;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -45,45 +43,48 @@
 }
 
 .product-inventory__status--in_stock {
-    color: #25A525 !important;
+    color: #25A525;
 }
 
 .product-inventory__status--in_stock .product-inventory__icon,
 .product-inventory__status--in_stock svg {
-    color: #25A525 !important;
-    fill: #25A525 !important;
-    width: 10px !important;
-    height: 10px !important;
+    color: #25A525;
+    fill: #25A525;
+    width: 10px;
+    height: 10px;
 }
 
 .product-inventory__status--out_of_stock {
-    color: #FF0000 !important;
+    color: #FF0000;
 }
 
 .product-inventory__status--out_of_stock .product-inventory__icon,
 .product-inventory__status--out_of_stock svg {
-    color: #FF0000 !important;
-    fill: #FF0000 !important;
-    width: 10px !important;
-    height: 10px !important;
+    color: #FF0000;
+    fill: #FF0000;
+    width: 10px;
+    height: 10px;
 }
 
 /* Typography */
 .product-details h1 {
-    text-align: left !important;
+    text-align: left;
     font-size: 25px !important;
-    line-height: 30px !important;
-    letter-spacing: 0px !important;
-    color: #000000 !important;
-    opacity: 1 !important;
-    margin-bottom: 5px !important;
+    font-weight: 600 !important;
+    line-height: 30px;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    margin-bottom: 5px;
 }
 
 /* Product Description */
 .product-details .rte,
 .product-details p {
     text-align: left;
-    font: normal normal 500 18px/22px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
     letter-spacing: 0px;
     color: #000000;
     opacity: 1;
@@ -91,24 +92,31 @@
 
 /* Price Container */
 .product-details div[ref="priceContainer"] {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 20px !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
 }
 
 .product-details .price {
     font-size: 16px;
     font-weight: 600;
-    color: #1F47FF !important;
+    color: #1F47FF;
 }
 
 .product-details .compare-at-price {
-    text-decoration: line-through !important;
+    text-decoration: line-through;
     font-size: 16px;
     font-weight: 600;
-    color: #000000 !important;
-    opacity: 1 !important;
+    color: #000000;
+    opacity: 1;
+}
+
+.product-details .price-vat-note {
+    font-size: 10px;
+    color: #000000;
+    font-weight: 400;
+    opacity: 1;
 }
 
 .product-details {
@@ -116,31 +124,24 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
     border: 1px solid #D5D5D5;
     border-radius: 5px;
-    padding: 18px 28px 28px 28px !important;
-    width: 475px !important;
-    height: 275px !important;
+    padding: 18px 28px 28px 28px;
+    width: 100%;
+    max-width: 475px;
+    height: auto;
     align-self: center;
-    overflow: hidden;
+    box-sizing: border-box;
 }
 
-/* Kompakte Abstände für Elemente */
 .product-details>* {
-    margin-bottom: 8px !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    margin-bottom: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .product-details .layout-panel-flex {
-    gap: 8px !important;
-}
-
-.product-details h1 {
-    margin-bottom: 4px !important;
+    gap: 8px;
 }
 
 .product-details .product-form__submit {
-    margin-top: 8px !important;
+    margin-top: 8px;
 }
-
-/* Desktop-Only Styling (Card Effect) */
-@media screen and (min-width: 750px) {}

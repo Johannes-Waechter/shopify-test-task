@@ -28,7 +28,7 @@
         <div class="swiper-wrapper">
           {% for media in closest.product.media %}
             <div class="swiper-slide">
-              {{ media | image_url: width: 1000 | image_tag: class: 'img-responsive', alt: media.alt }}
+              {{ media | image_url: width: 1000 | image_tag: alt: media.alt }}
             </div>
           {% endfor %}
         </div>

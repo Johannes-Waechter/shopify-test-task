@@ -149,7 +149,7 @@
     "duties_and_taxes_included": "Inkl. Zollgebühren und Steuern.",
     "duties_included": "Inkl. Zollgebühren.",
     "shipping_policy_html": "<a href=\"{{ link }}\">Versand</a> wird beim Checkout berechnet.",
-    "taxes_included": "Inkl. Steuern.",
+    "taxes_included": "inkl. MwSt.",
     "product_badge_sold_out": "Ausverkauft",
     "product_badge_sale": "Sale",
     "search_input_label": "Suchen",

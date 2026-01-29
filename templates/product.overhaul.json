@@ -141,7 +141,7 @@
               "settings": {
                 "show_sale_price_first": false,
                 "show_installments": false,
-                "show_tax_info": false,
+                "show_tax_info": true,
                 "type_preset": "paragraph",
                 "width": "100%",
                 "alignment": "left",
@@ -155,18 +155,6 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
               },
               "blocks": {}
             },
@@ -237,7 +225,6 @@
             "group_icgrde",
             "text_aEtTtq",
             "price_tVjtKg",
-            "divider_VJhene",
             "variant_picker_R3rGDr",
             "inventory_status_auto",
             "buy_buttons_eYQEYi"

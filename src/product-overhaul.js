@@ -12,13 +12,15 @@
  */
 
 import Swiper from 'swiper';
-import { Navigation, Thumbs, Pagination } from 'swiper/modules';
+import { Navigation, Thumbs, Pagination, Zoom, Keyboard } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/pagination';
+import 'swiper/css/zoom';
+import 'swiper/css/keyboard';
 
 // Import custom styles
 import './product-overhaul.css';
@@ -29,14 +31,14 @@ import './product-details.css';
  * Checks for existence of slider elements before initialization.
  */
 document.addEventListener('DOMContentLoaded', () => {
-    console.log(' Product Overhaul JS loaded!');
+    // console.log(' Product Overhaul JS loaded!');
 
     // Check if Swiper elements exist
     const thumbSlider = document.querySelector('.thumb-slider-vertical');
     const mainSlider = document.querySelector('.main-image-slider');
 
-    console.log('Thumb slider found:', !!thumbSlider);
-    console.log('Main slider found:', !!mainSlider);
+    // console.log('Thumb slider found:', !!thumbSlider);
+    // console.log('Main slider found:', !!mainSlider);
 
     if (!thumbSlider || !mainSlider) {
         console.error('Swiper elements not found! Make sure you are using the product-overhaul template.');
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         freeMode: true
     });
 
-    console.log('✅ Thumbnail slider initialized');
+    // console.log('✅ Thumbnail slider initialized');
 
     /**
      * 2. Main Image Slider Configuration
@@ -66,7 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
      * @type {Swiper}
      */
     const mainSwiperInstance = new Swiper(".main-image-slider", {
-        modules: [Navigation, Thumbs, Pagination],
+        modules: [Navigation, Thumbs, Pagination, Zoom, Keyboard],
+        zoom: true,
+        keyboard: {
+            enabled: true,
+        },
         loop: true,
         spaceBetween: 10,
         centeredSlides: true,
@@ -107,5 +113,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    console.log(' Main slider initialized');
+    // console.log(' Main slider initialized');
 });

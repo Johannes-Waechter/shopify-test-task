@@ -29,7 +29,11 @@
           {% for media in closest.product.media %}
             <div class="swiper-slide">
               <div class="swiper-zoom-container">
-                {{ media | image_url: width: 1000 | image_tag: alt: media.alt }}
+                {% if forloop.first %}
+                  {{ media | image_url: width: 1000 | image_tag: alt: media.alt, loading: 'eager', fetchpriority: 'high', preload: true }}
+                {% else %}
+                  {{ media | image_url: width: 1000 | image_tag: loading: 'lazy', alt: media.alt }}
+                {% endif %}
               </div>
             </div>
           {% endfor %}

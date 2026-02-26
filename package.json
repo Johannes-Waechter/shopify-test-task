@@ -1,0 +1,27 @@
+{
+  "name": "shopify-frontend-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johannes-Waechter/shopify-test-task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Johannes-Waechter/shopify-test-task/issues"
+  },
+  "homepage": "https://github.com/Johannes-Waechter/shopify-test-task#readme",
+  "devDependencies": {
+    "swiper": "^12.0.3",
+    "vite": "^7.3.1"
+  }
+}

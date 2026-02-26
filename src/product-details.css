@@ -1,0 +1,205 @@
+/* ============================================
+   Product Details Styling 
+   ============================================ */
+
+/* Add to Cart Button */
+.product-details button[type="submit"],
+.product-details .product-form__submit {
+    background-color: #1F47FF;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    border-radius: 3px;
+    text-transform: none;
+    border: none;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.product-details button[type="submit"] svg,
+.product-details .product-form__submit svg {
+    display: none;
+}
+
+.product-details button[type="submit"]:hover,
+.product-details .product-form__submit:hover {
+    background-color: #1a3fb0;
+}
+
+/* Inventory Status */
+.product-inventory__status {
+    font-style: Medium;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 19px;
+    opacity: 1;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-inventory__status--in_stock {
+    color: #25A525;
+}
+
+.product-inventory__status--in_stock .product-inventory__icon,
+.product-inventory__status--in_stock svg {
+    color: #25A525;
+    fill: #25A525;
+    width: 10px;
+    height: 10px;
+}
+
+.product-inventory__status--out_of_stock {
+    color: #FF0000;
+}
+
+.product-inventory__status--out_of_stock .product-inventory__icon,
+.product-inventory__status--out_of_stock svg {
+    color: #FF0000;
+    fill: #FF0000;
+    width: 10px;
+    height: 10px;
+}
+
+/* Typography */
+.product-details h1 {
+    display: block !important;
+    text-align: left;
+    font-size: 25px !important;
+    font-weight: 600 !important;
+    line-height: 30px;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    margin-bottom: 5px;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+/* Product Description */
+.product-details .rte,
+.product-details p {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+/* Price Container */
+.product-details div[ref="priceContainer"] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-details .price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1F47FF;
+}
+
+.product-details .compare-at-price,
+.price-tax-wrapper .compare-at-price {
+    text-decoration: line-through;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000 !important;
+    opacity: 1 !important;
+}
+
+/* Inline Price Layout Fix */
+.price-tax-wrapper>div {
+    width: auto !important;
+    display: inline-flex !important;
+}
+
+.product-details .price-vat-note,
+.product-details .tax-note {
+    font-size: 10px !important;
+    color: #000000 !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+}
+
+.product-details {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
+    border: 1px solid #D5D5D5;
+    border-radius: 5px;
+    padding: 18px 28px 28px 28px;
+    width: 100%;
+    max-width: 475px;
+    height: auto;
+    align-self: center;
+    box-sizing: border-box;
+}
+
+.product-details>* {
+    margin-bottom: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.product-details .layout-panel-flex {
+    gap: 8px;
+}
+
+.product-details .product-form__submit {
+    margin-top: 8px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 749px) {
+    .product-details {
+        width: calc(100% - 30px) !important;
+        min-width: 348px;
+        max-width: 475px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin-top: 15px !important;
+        margin-bottom: 15px !important;
+        margin-inline: auto !important;
+        justify-self: center !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        display: block !important;
+    }
+
+    .product-details h1 {
+        font-size: 22px !important;
+    }
+
+    .product-inventory__status {
+        font-size: 16px
+    }
+
+    /* Product Description */
+    .product-details .rte,
+    .product-details p {
+        font-size: 16px;
+    }
+
+    .product-details .price {
+        font-size: 16px;
+    }
+
+    .product-details .compare-at-price {
+        font-size: 16px;
+    }
+
+    .product-details button[type="submit"],
+    .product-details .product-form__submit {
+        font-size: 16px;
+
+    }
+
+}
